@@ -232,7 +232,7 @@ Nenhum parâmetro é necessário para esta solicitação.
   }
 ]
 ```
-#### POST /ferramentas
+####   `POST /ferramentas`
 Este endpoint permite criar uma nova ferramenta no sistema.
 
 **Entrada:**
@@ -259,7 +259,7 @@ Corpo da solicitação (JSON): Os detalhes da nova ferramenta a ser criada, incl
 }
 
 ```
-#### PUT /ferramentas/:id
+#### `PUT /ferramentas/:id`
 Este endpoint permite atualizar o status de uma ferramenta existente no sistema.
 
 **Entrada:**
