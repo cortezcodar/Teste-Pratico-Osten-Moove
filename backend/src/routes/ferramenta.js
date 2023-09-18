@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const ferramenta_1 = require("../controllers/ferramenta");
+const router = (0, express_1.Router)();
+router.get("/", ferramenta_1.getFerramentas);
+router.get("/:id", ferramenta_1.getFerramenta);
+router.post("/", ferramenta_1.createFerramenta);
+router.put("/:id", ferramenta_1.putFerramenta);
+router.delete("/:id", ferramenta_1.deleteFerramenta);
+exports.default = router;
