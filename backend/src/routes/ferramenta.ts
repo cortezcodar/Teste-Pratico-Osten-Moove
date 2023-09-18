@@ -1,20 +1,20 @@
 import { Router } from "express";
 import {
     deleteFerramenta,
-    getFerramenta,
-    getFerramentas,
+    getFerramentaId,
     createFerramenta,
-    putFerramenta,
+    updateFerramenta,
     reservarFerramenta,
+    listFerramentas,
 } from "../controllers/ferramenta";
 
 const router = Router();
 
-router.get("/", getFerramentas);
-router.get("/:id", getFerramenta);
-router.post("/", createFerramenta);
-router.put("/:id", putFerramenta);
-router.put("/:id/reservar", reservarFerramenta);
-router.delete("/:id", deleteFerramenta);
+router.get("/ferramentas", listFerramentas);
+router.get("/ferramentas/:id", getFerramentaId);
+router.post("/ferramentas/", createFerramenta);
+router.put("/ferramentas/:id", updateFerramenta);
+router.put("/ferramentas/:id/reservar", reservarFerramenta);
+router.delete("/ferramentas/:id", deleteFerramenta);
 
 export default router;

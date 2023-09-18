@@ -9,13 +9,13 @@ enum FerramentaStatus {
 }
 
 
-export const getFerramentas = async (res: Response) => {
+export const listFerramentas = async (res: Response) => {
     const ferramentas = await Ferramenta.findAll();
     res.json({ ferramentas });
 };
 
 
-export const getFerramenta = async (req: Request, res: Response) => {
+export const getFerramentaId = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
         const ferramenta = await Ferramenta.findByPk(id);
@@ -58,7 +58,7 @@ export const createFerramenta = async (req: Request, res: Response) => {
     }
 };
 
-export const putFerramenta = async (req: Request, res: Response) => {
+export const updateFerramenta = async (req: Request, res: Response) => {
     const { id } = req.params;
     try {
         const ferramenta = await Ferramenta.findByPk(id);

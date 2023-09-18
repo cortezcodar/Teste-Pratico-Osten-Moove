@@ -121,19 +121,162 @@ git clone https://github.com/cortezcodar/Teste-Pratico-Osten-Moove.git
 
 ## Endpoints da API
 
+O back-end é uma API RESTful desenvolvida em Node.js, Express, TypeScript, MySQL e Sequelize. A API oferece os seguintes recursos:
+
+### Endpoints da API
+
 A API possui os seguintes endpoints principais:
 
-- `/ferramentas`: Lista todas as ferramentas.
-- `/ferramentas/:id`: Obtém detalhes de uma ferramenta pelo ID.
-- `/ferramentas`: Cria uma nova ferramenta.
-- `/ferramentas/:id`: Atualiza o status de uma ferramenta.
-- `/ferramentas/:id/reservar`: Reserva uma ferramenta para um mecânico.
-- `/ferramentas/:id`: Deleta uma ferramenta pelo ID.
+#### `GET /ferramentas`
+
+Este endpoint permite listar todas as ferramentas disponíveis no sistema.
+
+**Entrada:**
+
+Nenhum parâmetro é necessário para esta solicitação.
+
+**Saída:**
+
+- **Status 200 OK**: A solicitação foi bem-sucedida, e a resposta conterá uma lista de objetos de ferramentas, cada um representando uma ferramenta disponível no sistema.
+
+- **Status 404 Not Found**: Não foram encontradas ferramentas no sistema.
+
+**Exemplo de Resposta (200 OK):**
+
+```json
+[
+  {
+    "id": 1,
+    "nome": "Chave de Fenda",
+    "descricao": "Uma ferramenta para apertar ou soltar parafusos",
+    "status": "Disponível",
+    "coleta": null,
+    "devolucao": null,
+    "mecanico_reserva": null
+  },
+  {
+    "id": 2,
+    "nome": "Martelo",
+    "descricao": "Uma ferramenta para bater em coisas",
+    "status": "Reservado",
+    "coleta": "2023-09-28T10:00:00Z",
+    "devolucao": "2023-09-30T16:00:00Z",
+    "mecanico_reserva": "João da Silva"
+  }
+]
+```
+
+Desculpe pela confusão. Aqui está o conteúdo completo em formato Markdown que você pode copiar e colar no seu arquivo README.md:
+
+markdown
+Copy code
+# Sistema de Gerenciamento de Ferramentas
+
+Este projeto é um sistema de gerenciamento de ferramentas para mecânicos, composto por um front-end e um back-end.
+
+## Front-end
+
+O front-end foi desenvolvido em React e permite:
+
+- Listar as ferramentas, mostrando seu status, data e hora de coleta, data e hora de devolução, e opções para editar, reservar e deletar.
+- Permitir adicionar novas ferramentas.
+- Permitir atualizar o status de uma ferramenta.
+- Permitir a reserva de uma ferramenta por um mecânico.
+- Solicitar confirmação para deletar uma ferramenta.
+
+Para mais detalhes sobre o front-end, consulte a [documentação do front-end](./frontend/README.md).
+
+## Back-end
+
+O back-end é uma API RESTful desenvolvida em Node.js, Express, TypeScript, MySQL e Sequelize. A API oferece os seguintes recursos:
+
+### Endpoints da API
+
+A API possui os seguintes endpoints principais:
+
+#### `GET /ferramentas`
+
+Este endpoint permite listar todas as ferramentas disponíveis no sistema.
+
+**Entrada:**
+
+Nenhum parâmetro é necessário para esta solicitação.
+
+**Saída:**
+
+- **Status 200 OK**: A solicitação foi bem-sucedida, e a resposta conterá uma lista de objetos de ferramentas, cada um representando uma ferramenta disponível no sistema.
+
+- **Status 404 Not Found**: Não foram encontradas ferramentas no sistema.
+
+**Exemplo de Resposta (200 OK):**
+
+```json
+[
+  {
+    "id": 1,
+    "nome": "Chave de Fenda",
+    "descricao": "Uma ferramenta para apertar ou soltar parafusos",
+    "status": "Disponível",
+    "coleta": null,
+    "devolucao": null,
+    "mecanico_reserva": null
+  },
+  {
+    "id": 2,
+    "nome": "Martelo",
+    "descricao": "Uma ferramenta para bater em coisas",
+    "status": "Reservado",
+    "coleta": "2023-09-28T10:00:00Z",
+    "devolucao": "2023-09-30T16:00:00Z",
+    "mecanico_reserva": "João da Silva"
+  }
+]
+```
+#### POST /ferramentas
+Este endpoint permite criar uma nova ferramenta no sistema.
+
+**Entrada:**
+
+Corpo da solicitação (JSON): Os detalhes da nova ferramenta a ser criada, incluindo o nome, descrição e status.
+```json
+{
+  "nome": "Furadeira",
+  "descricao": "Uma ferramenta para perfurar materiais",
+  "status": "Disponível"
+}
+```
+**Saída:**
+**Status 201 Created:** A ferramenta foi criada com sucesso e a resposta conterá os detalhes da ferramenta recém-criada, incluindo o ID atribuído automaticamente.
+```json
+{
+  "id": 3,
+  "nome": "Furadeira",
+  "descricao": "Uma ferramenta para perfurar materiais",
+  "status": "Disponível",
+  "coleta": null,
+  "devolucao": null,
+  "mecanico_reserva": null
+}
+
+```
+#### PUT /ferramentas/:id
+Este endpoint permite atualizar o status de uma ferramenta existente no sistema.
+
+**Entrada:**
+
+Parâmetros de URL: id - O ID da ferramenta a ser atualizada.
+
+Corpo da solicitação (JSON): O novo status da ferramenta.
+```json
+{
+  "status": "Reservado",
+  "coleta": "2023-09-28T14:00:00Z",
+  "devolucao": "2023-09-30T16:00:00Z",
+  "mecanico_reserva": "Maria da Silva"
+}
 
 
-
-
-
+```
 
 # Gerenciador de Ferramentas
 
