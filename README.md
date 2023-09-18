@@ -275,6 +275,21 @@ Corpo da solicitação (JSON): O novo status da ferramenta.
   "mecanico_reserva": "Maria da Silva"
 }
 
+```
+
+**Saída:**
+
+**Status 200 OK:** A ferramenta foi atualizada com sucesso e a resposta conterá os detalhes atualizados da ferramenta.
+```json
+{
+  "id": 3,
+  "nome": "Furadeira",
+  "descricao": "Uma ferramenta para perfurar materiais",
+  "status": "Disponível",
+  "coleta": null,
+  "devolucao": null,
+  "mecanico_reserva": null
+}
 
 ```
 
